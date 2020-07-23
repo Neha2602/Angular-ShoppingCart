@@ -1,6 +1,6 @@
 node {
          stage ('Checkout SCM'){
-                    git branch: 'master',url: 'https://github.com/Neha2602/Shopping_Cart.git'
+                    git branch: 'master',url: 'https://github.com/Neha2602/Angular-ShoppingCart.git'
          }
          
          stage('Install node modules'){
