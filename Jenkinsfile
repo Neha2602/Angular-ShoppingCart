@@ -5,15 +5,15 @@ node {
          }
          
          stage('Install node modules'){
-                      powershell 'npm install'
+                      sh 'npm install'
                       echo "modules installed"
          }
          stage('Build'){
-                     powershell 'npm run ng -- build --prod'
+                     sh 'npm run ng -- build --prod'
                      echo "build successful"
          }
          stage('Package Build') {
-        powershell '7z -zcvf bundle.tar.gz dist/ng7/'
+         sh '7z -zcvf bundle.tar.gz dist/ng7/'
     }
 
     stage('Artifacts Creation') {
