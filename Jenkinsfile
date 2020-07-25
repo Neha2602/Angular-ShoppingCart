@@ -45,6 +45,6 @@ node('awsnode') {
     echo 'Artifacts copied'
 
     echo 'Copy'
-    powershell 'yes | copy run bundle.tar.gz /var/www/html && cd /var/www/html && 7z -xvf bundle.tar.gz'
+    powershell 'yes | copy bundle.tar.gz /var/www/html && cd /var/www/html && 7z -xvf bundle.tar.gz'
     echo 'Copy completed'
 }
