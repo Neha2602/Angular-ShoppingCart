@@ -13,7 +13,7 @@ node {
                      echo "build successful"
          }
          stage('Package Build') {
-         sh "tar -zcvf bundle.tar.gz dist/shopping-cart/"
+         powershell '7z -zcvf bundle.tar.gz dist/shopping-cart/'
     }
 
     stage('Artifacts Creation') {
