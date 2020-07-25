@@ -13,7 +13,7 @@ node {
                      echo "build successful"
          }
          stage('Package Build') {
-         sh '7z -zcvf bundle.tar.gz dist/ng7/'
+         sh 'tar -zcvf bundle.tar.gz dist/ng7/'
     }
 
     stage('Artifacts Creation') {
