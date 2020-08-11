@@ -6,6 +6,11 @@ pipeline {
   }
   agent any
   stages{
+    stage('Git Checkout'){
+      steps{
+        git 'https://github.com/Neha2602/Angular-ShoppingCart.git'
+      }
+    }
     stage ('Build') {
       steps{
         echo "Building Project"
