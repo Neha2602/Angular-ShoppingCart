@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    registry = "akanshagiriya/shopping-cart"
-    registryCredential = 'docker_hub_akanshagiriya'
+    registry = "neha2602/Angular-ShoppingCart"
+    registryCredential = 'docker_hub_neha2602'
     dockerImage = ''
   }
   agent any
@@ -38,7 +38,7 @@ pipeline {
       steps{
         echo "Deploying to Dev Environment"
         sh "docker rm -f shopping-cart || true"
-        sh "docker run -d --name=shopping-cart -p 4201:4200 akanshagiriya/shopping-cart"
+        sh "docker run -d --name=shopping-cart -p 4201:4200 neha2602/angular-shoppingcart"
       }
     }
   }
