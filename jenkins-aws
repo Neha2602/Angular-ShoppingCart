@@ -1,0 +1,16 @@
+pipeline {
+  agent any
+  stages{
+    stage ('Create AWS Stack') {
+      steps {
+        echo "Creating AWS CloudFormation Stack"
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+        credentialsId: 'aws-key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+          sh 'aws cloudformation create-stack --stack-name shoppingcart --template-body file://aws-template-shoppingcart.yaml 
+          --region us-east-1 --parameters  ParameterKey=SSHKey,ParameterValue=linux ParameterKey=ELBVPC,ParameterValue=vpc-866a83fb 
+          ParameterKey=ELBSubnet,ParameterValue="subnet-61ff2440\\,subnet-1e2bcb2f"'
+        }
+      }
+    }
+  }
+}
