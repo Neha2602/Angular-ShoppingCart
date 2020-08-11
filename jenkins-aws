@@ -4,7 +4,7 @@ pipeline {
     stage ('Create AWS Stack') {
       steps {
         echo "Creating AWS CloudFormation Stack"
-       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key', secretKeyVariable: 'AWS_SECRET_KEY_ID']]) {
+       withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-key', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
     // some block
 
           sh 'aws cloudformation create-stack --stack-name shoppingcart --template-body file://aws-template-shoppingcart.yaml --region us-east-1 --parameters  ParameterKey=SSHKey,ParameterValue=DevOps1 ParameterKey=ELBVPC,ParameterValue=vpc-a2bd59df ParameterKey=ELBSubnet,ParameterValue="subnet-8ef76fc3\\,subnet-8e9a1800"'
