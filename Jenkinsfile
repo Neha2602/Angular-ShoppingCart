@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "neha2602/Angular-ShoppingCart"
+    registry = "neha2602/angular-shoppingcart"
     registryCredential = 'docker_hub_neha2602'
     dockerImage = ''
   }
